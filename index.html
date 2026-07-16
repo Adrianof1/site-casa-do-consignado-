@@ -80,6 +80,7 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero">
+    <div class="bills-fall" id="billsFall" aria-hidden="true"></div>
     <div class="container hero__inner">
       <div class="hero__content" data-reveal>
         <span class="badge">100% online · Sem sair de casa</span>
@@ -89,7 +90,7 @@
           e um atendimento humano do início ao fim. Simule agora, sem compromisso.
         </p>
         <div class="hero__cta">
-          <a href="#simulador" class="btn btn--primary">Simular agora</a>
+          <a href="#simulador" class="btn btn--primary btn--shine">Simular agora</a>
           <a href="https://wa.me/5586988422265?text=Ol%C3%A1!%20Quero%20simular%20meu%20cr%C3%A9dito%20consignado."
              class="btn btn--outline" target="_blank" rel="noopener">Falar com consultor</a>
         </div>
@@ -101,11 +102,20 @@
       </div>
 
       <div class="hero__visual" data-reveal>
-        <div class="hero__card">
-          <p class="hero__card-label">Simulação estimada</p>
-          <p class="hero__card-value">R$ 1.250,00<span>/mês</span></p>
-          <div class="hero__card-bar"><span></span></div>
-          <p class="hero__card-note">Valor ilustrativo. Sujeito a análise de crédito.</p>
+        <div class="hero__card-wrap">
+          <div class="hero__card">
+            <p class="hero__card-label">Simulação estimada</p>
+            <p class="hero__card-value"><span id="heroCounter">R$ 0,00</span><span>/mês</span></p>
+            <div class="hero__card-bar"><span></span></div>
+            <p class="hero__card-note">Valor ilustrativo. Sujeito a análise de crédito.</p>
+          </div>
+          <svg class="money-stack" viewBox="0 0 108 84" aria-hidden="true">
+            <rect x="6" y="30" width="88" height="46" rx="6" fill="#0d2a52" stroke="#e6c65c" stroke-width="2"/>
+            <rect x="14" y="18" width="88" height="46" rx="6" fill="#123a6e" stroke="#e6c65c" stroke-width="2"/>
+            <rect x="2" y="6" width="88" height="46" rx="6" fill="#1b9e6b" stroke="#e6c65c" stroke-width="2"/>
+            <circle cx="46" cy="29" r="12" fill="none" stroke="#e6c65c" stroke-width="2"/>
+            <text x="46" y="34" font-family="Poppins, Arial, sans-serif" font-weight="800" font-size="13" fill="#e6c65c" text-anchor="middle">$</text>
+          </svg>
         </div>
       </div>
     </div>
@@ -373,11 +383,19 @@
 
   <!-- ===== CTA FINAL ===== -->
   <section class="cta-final" data-reveal>
+    <svg class="cta-final__coin cta-final__coin--1" viewBox="0 0 60 60" aria-hidden="true">
+      <circle cx="30" cy="30" r="27" fill="none" stroke="#e6c65c" stroke-width="3"/>
+      <text x="30" y="39" font-family="Poppins, Arial, sans-serif" font-weight="800" font-size="24" fill="#e6c65c" text-anchor="middle">$</text>
+    </svg>
+    <svg class="cta-final__coin cta-final__coin--2" viewBox="0 0 60 60" aria-hidden="true">
+      <circle cx="30" cy="30" r="27" fill="none" stroke="#e6c65c" stroke-width="3"/>
+      <text x="30" y="39" font-family="Poppins, Arial, sans-serif" font-weight="800" font-size="24" fill="#e6c65c" text-anchor="middle">$</text>
+    </svg>
     <div class="container cta-final__inner">
       <h2>Pronto para simular seu crédito consignado?</h2>
       <p>Fale agora com um de nossos consultores e descubra a melhor condição para você.</p>
       <a href="https://wa.me/5586988422265?text=Ol%C3%A1!%20Quero%20simular%20meu%20cr%C3%A9dito%20consignado."
-         class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+         class="btn btn--whatsapp btn--lg btn--shine" target="_blank" rel="noopener">Chamar no WhatsApp</a>
     </div>
   </section>
 

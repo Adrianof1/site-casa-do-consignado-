@@ -1,4 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Falling bills (hero ambient animation) ---------- */
+  const billsFall = document.getElementById('billsFall');
+  if (billsFall && !prefersReducedMotion) {
+    const BILL_COUNT = 14;
+    for (let i = 0; i < BILL_COUNT; i++) {
+      const bill = document.createElement('div');
+      bill.className = 'bill';
+      const duration = 9 + Math.random() * 7; // 9s–16s
+      const delay = -(Math.random() * duration); // negative delay = starts mid-fall
+      bill.style.setProperty('--x', `${Math.random() * 100}%`);
+      bill.style.setProperty('--dur', `${duration}s`);
+      bill.style.setProperty('--delay', `${delay}s`);
+      bill.style.setProperty('--drift', `${(Math.random() - 0.5) * 120}px`);
+      bill.style.setProperty('--spin', `${180 + Math.random() * 360}deg`);
+      bill.style.setProperty('--s', `${0.7 + Math.random() * 0.6}`);
+      bill.style.setProperty('--o', `${0.1 + Math.random() * 0.14}`);
+      bill.innerHTML = '<div class="bill__note">R$</div>';
+      billsFall.appendChild(bill);
+    }
+  }
+
+  /* ---------- Count-up numbers ---------- */
+  function animateCount(el, target, { prefix = '', duration = 1400 } = {}) {
+    if (prefersReducedMotion) {
+      el.textContent = prefix + target.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      return;
+    }
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = target * eased;
+      el.textContent = prefix + value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const heroCounter = document.getElementById('heroCounter');
+  if (heroCounter) {
+    animateCount(heroCounter, 1250, { prefix: 'R$ ' });
+  }
+
   /* ---------- Header scroll state ---------- */
   const header = document.getElementById('header');
   const onScroll = () => {
@@ -66,6 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
     valorOutput.textContent = formatBRL(valor);
     parcelasOutput.textContent = `${parcelas}x`;
     resultadoParcela.textContent = `${formatBRL(parcela)} /mês`;
+    if (!prefersReducedMotion) {
+      resultadoParcela.classList.remove('is-pulsing');
+      // eslint-disable-next-line no-unused-expressions
+      resultadoParcela.offsetWidth; // restart animation
+      resultadoParcela.classList.add('is-pulsing');
+    }
 
     const msg = encodeURIComponent(
       `Olá! Simulei no site: valor de ${formatBRL(valor)} em ${parcelas}x (parcela estimada ${formatBRL(parcela)}). Quero continuar.`
