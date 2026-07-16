@@ -178,13 +178,25 @@ p { color: var(--gray-700); }
   font-weight: 800;
   font-size: 0.95rem;
 }
+.logo__text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
 .logo__text {
   font-family: var(--font-heading);
   font-weight: 500;
   color: var(--navy-900);
   font-size: 1.05rem;
+  line-height: 1.2;
 }
 .logo__text strong { font-weight: 800; }
+.logo__tagline {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--green-500);
+  letter-spacing: 0.02em;
+}
 
 .nav__list {
   display: flex;
@@ -281,6 +293,30 @@ p { color: var(--gray-700); }
   font-weight: 600;
   color: var(--navy-700);
 }
+
+.agent-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+  padding: 8px 16px 8px 8px;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.agent-chip:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.agent-chip__photo {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+  border: 2px solid var(--gold-400);
+}
+.agent-chip__text { display: flex; flex-direction: column; line-height: 1.3; }
+.agent-chip__text strong { color: var(--navy-900); font-size: 0.9rem; }
+.agent-chip__text small { color: var(--gray-500); font-size: 0.76rem; }
 
 .hero__visual { display: flex; justify-content: center; }
 .hero__card-wrap { position: relative; width: 100%; max-width: 360px; }
@@ -443,6 +479,46 @@ p { color: var(--gray-700); }
   transform: translateY(-50%);
   border-radius: 50%;
   background: var(--gold-400);
+}
+
+/* ==== Consultor (Sobre o consultor) ==== */
+.consultor__inner {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 56px;
+  align-items: center;
+}
+.consultor__photo-wrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 465 / 1000;
+}
+.consultor__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.consultor__content h2 { margin-bottom: 6px; }
+.consultor__role {
+  color: var(--green-500);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.consultor__bio {
+  font-size: 1.02rem;
+  margin-bottom: 24px;
+  max-width: 560px;
+}
+.consultor__points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--navy-700);
+  margin-bottom: 32px;
 }
 
 /* ==== Grid & Cards ==== */
@@ -674,6 +750,25 @@ p { color: var(--gray-700); }
 }
 .form__note { grid-column: 1 / -1; font-size: 0.9rem; color: var(--green-500); font-weight: 600; min-height: 20px; }
 
+.contact__agent {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  margin-bottom: 24px;
+  background: var(--gray-100);
+  border-radius: var(--radius-md);
+}
+.contact__agent-photo {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+  border: 2px solid var(--gold-400);
+}
+.contact__agent strong { display: block; color: var(--navy-900); }
+.contact__agent small { color: var(--gray-500); font-size: 0.8rem; }
+
 .contact__info h3 { margin-bottom: 20px; }
 .contact__list { display: flex; flex-direction: column; gap: 22px; }
 .contact__list li { display: flex; gap: 14px; align-items: flex-start; }
@@ -777,6 +872,8 @@ p { color: var(--gray-700); }
   .grid--4 { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); }
   .contact { grid-template-columns: 1fr; }
+  .consultor__inner { grid-template-columns: 1fr; }
+  .consultor__photo-wrap { max-width: 320px; margin: 0 auto; }
 }
 
 @media (max-width: 760px) {
