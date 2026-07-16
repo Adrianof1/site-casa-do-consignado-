@@ -11,19 +11,28 @@ js/script.js       menu mobile, accordion do FAQ, simulador, formulário
 assets/favicon.svg ícone da aba do navegador
 ```
 
-## Antes de publicar — dados a atualizar
+## Já preenchido com dados reais
+
+- **WhatsApp**: `5586988422265` — (86) 98842-2265, agente Paulo Henrique — usado em todos
+  os botões de WhatsApp (`index.html`) e no simulador (`js/script.js`).
+- **Logo**: ícone casa + cifrão (inline SVG no header/footer e em `assets/favicon.svg`),
+  baseado na arte oficial da marca.
+- **Serviços**: consignado INSS, servidor público, empréstimo CLT, liberação de FGTS,
+  portabilidade e compra de dívida/refinanciamento — igual ao material de divulgação.
+
+## Antes de publicar — dados que ainda faltam
 
 Procure por estes marcadores e substitua pelos dados reais da empresa:
 
-- **WhatsApp**: todos os links `https://wa.me/5500000000000` (em `index.html`) e a URL
-  usada em `js/script.js` (função `updateSimulator`). Troque `5500000000000` pelo número
-  real no formato `55DDDNÚMERO` (só dígitos).
-- **E-mail**: `contato@casadoconsignado.com.br` em `index.html`.
-- **Endereço e horário**: seção "Contato" em `index.html` (marcados com `[ATUALIZAR ...]`).
+- **E-mail**: `contato@casadoconsignado.com.br` em `index.html` (placeholder).
+- **Endereço e horário de atendimento**: seção "Contato" em `index.html`
+  (marcados com `[ATUALIZAR ...]`).
 - **Depoimentos**: seção "Depoimentos" tem 3 cartões de exemplo — troque pelo texto e
   nome de clientes reais (com autorização deles).
-- **Domínio**: tag `<link rel="canonical">` e `og:url`/`og:site_name` no `<head>`, se for
+- **Domínio**: tag `<link rel="canonical">` e `og:site_name` no `<head>`, se for
   publicar em domínio próprio.
+- **Novo agente/número**: se a empresa tiver mais de um consultor, ajuste o texto
+  "Falar com o agente Paulo Henrique" na seção de Contato.
 
 ## Como testar localmente
 

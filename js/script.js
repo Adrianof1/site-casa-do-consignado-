@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const msg = encodeURIComponent(
       `Olá! Simulei no site: valor de ${formatBRL(valor)} em ${parcelas}x (parcela estimada ${formatBRL(parcela)}). Quero continuar.`
     );
-    simulatorCta.href = `https://wa.me/5500000000000?text=${msg}`;
+    simulatorCta.href = `https://wa.me/5586988422265?text=${msg}`;
   }
 
   if (valorInput && parcelasInput) {
