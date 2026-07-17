@@ -294,30 +294,6 @@ p { color: var(--gray-700); }
   color: var(--navy-700);
 }
 
-.agent-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 28px;
-  padding: 8px 16px 8px 8px;
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: 999px;
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-.agent-chip:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.agent-chip__photo {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center 15%;
-  border: 2px solid var(--gold-400);
-}
-.agent-chip__text { display: flex; flex-direction: column; line-height: 1.3; }
-.agent-chip__text strong { color: var(--navy-900); font-size: 0.9rem; }
-.agent-chip__text small { color: var(--gray-500); font-size: 0.76rem; }
-
 .hero__visual { display: flex; justify-content: center; }
 .hero__card-wrap { position: relative; width: 100%; max-width: 360px; }
 .hero__card {
@@ -338,28 +314,34 @@ p { color: var(--gray-700); }
   width: 160px; height: 160px;
   background: radial-gradient(circle, rgba(212,175,55,0.35), transparent 70%);
 }
-.hero__card-label { opacity: 0.75; font-size: 0.85rem; margin-bottom: 8px; }
-.hero__card-value {
+.hero__card-photo {
+  width: 76px; height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+  border: 3px solid var(--gold-400);
+  margin: 0 auto 16px;
+}
+.hero__card-name {
   font-family: var(--font-heading);
-  font-size: 2.4rem;
   font-weight: 800;
+  font-size: 1.3rem;
+  text-align: center;
+}
+.hero__card-role {
+  text-align: center;
   color: var(--gold-400);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
 }
-.hero__card-value span { font-size: 1rem; font-weight: 500; color: rgba(255,255,255,0.7); }
-.hero__card-bar {
-  height: 8px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 999px;
-  margin: 24px 0 12px;
-  overflow: hidden;
+.hero__card-note {
+  text-align: center;
+  font-size: 0.88rem;
+  opacity: 0.8;
+  margin-bottom: 24px;
 }
-.hero__card-bar span {
-  display: block;
-  width: 62%; height: 100%;
-  background: linear-gradient(90deg, var(--green-500), var(--gold-400));
-  border-radius: 999px;
-}
-.hero__card-note { font-size: 0.75rem; opacity: 0.6; }
+.hero__card-cta { width: 100%; }
 
 /* ==== Falling bills (hero ambient animation) ==== */
 .bills-fall {
@@ -434,8 +416,7 @@ p { color: var(--gray-700); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bill, .money-stack, .btn--shine::after, .cta-final__coin,
-  .simulator__result strong.is-pulsing {
+  .bill, .money-stack, .btn--shine::after, .cta-final__coin {
     animation: none !important;
   }
   .bills-fall { display: none; }
@@ -588,57 +569,6 @@ p { color: var(--gray-700); }
 }
 .step h3 { margin-bottom: 8px; font-size: 1.05rem; }
 .step p { font-size: 0.92rem; }
-
-/* ==== Simulator ==== */
-.simulator {
-  max-width: 640px;
-  margin: 0 auto;
-  background: var(--white);
-  border-radius: var(--radius-lg);
-  padding: 40px;
-  box-shadow: var(--shadow-md);
-}
-.simulator__form .field { margin-bottom: 28px; }
-.simulator__form label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: var(--navy-800);
-}
-.simulator__form input[type="range"] {
-  width: 100%;
-  accent-color: var(--green-500);
-}
-.simulator__form output {
-  display: block;
-  margin-top: 8px;
-  font-weight: 700;
-  color: var(--gold-500);
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-}
-.simulator__result {
-  text-align: center;
-  background: var(--gray-100);
-  border-radius: var(--radius-md);
-  padding: 28px;
-}
-.simulator__result p { margin-bottom: 8px; }
-.simulator__result strong {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  color: var(--navy-900);
-  margin-bottom: 20px;
-}
-.simulator__result strong.is-pulsing {
-  animation: result-pulse 0.4s ease;
-}
-@keyframes result-pulse {
-  0% { transform: scale(1); color: var(--navy-900); }
-  40% { transform: scale(1.08); color: var(--green-500); }
-  100% { transform: scale(1); color: var(--navy-900); }
-}
 
 /* ==== Testimonials ==== */
 .testimonial {

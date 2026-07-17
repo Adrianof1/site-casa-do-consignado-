@@ -22,28 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* ---------- Count-up numbers ---------- */
-  function animateCount(el, target, { prefix = '', duration = 1400 } = {}) {
-    if (prefersReducedMotion) {
-      el.textContent = prefix + target.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-      return;
-    }
-    const start = performance.now();
-    function tick(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const value = target * eased;
-      el.textContent = prefix + value.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-      if (progress < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
-
-  const heroCounter = document.getElementById('heroCounter');
-  if (heroCounter) {
-    animateCount(heroCounter, 1250, { prefix: 'R$ ' });
-  }
-
   /* ---------- Header scroll state ---------- */
   const header = document.getElementById('header');
   const onScroll = () => {
@@ -89,46 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!wasOpen) item.classList.add('is-open');
     });
   });
-
-  /* ---------- Loan simulator ---------- */
-  const valorInput = document.getElementById('valor');
-  const parcelasInput = document.getElementById('parcelas');
-  const valorOutput = document.getElementById('valorOutput');
-  const parcelasOutput = document.getElementById('parcelasOutput');
-  const resultadoParcela = document.getElementById('resultadoParcela');
-  const simulatorCta = document.getElementById('simulatorCta');
-
-  const formatBRL = (value) =>
-    value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
-  function updateSimulator() {
-    const valor = Number(valorInput.value);
-    const parcelas = Number(parcelasInput.value);
-    // Estimativa ilustrativa (taxa fictícia de referência ~1,8% a.m.)
-    const taxaMensal = 0.018;
-    const parcela = (valor * taxaMensal) / (1 - Math.pow(1 + taxaMensal, -parcelas));
-
-    valorOutput.textContent = formatBRL(valor);
-    parcelasOutput.textContent = `${parcelas}x`;
-    resultadoParcela.textContent = `${formatBRL(parcela)} /mês`;
-    if (!prefersReducedMotion) {
-      resultadoParcela.classList.remove('is-pulsing');
-      // eslint-disable-next-line no-unused-expressions
-      resultadoParcela.offsetWidth; // restart animation
-      resultadoParcela.classList.add('is-pulsing');
-    }
-
-    const msg = encodeURIComponent(
-      `Olá! Simulei no site: valor de ${formatBRL(valor)} em ${parcelas}x (parcela estimada ${formatBRL(parcela)}). Quero continuar.`
-    );
-    simulatorCta.href = `https://wa.me/5586988422265?text=${msg}`;
-  }
-
-  if (valorInput && parcelasInput) {
-    valorInput.addEventListener('input', updateSimulator);
-    parcelasInput.addEventListener('input', updateSimulator);
-    updateSimulator();
-  }
 
   /* ---------- Contact form (front-end only placeholder) ---------- */
   const contactForm = document.getElementById('contactForm');
