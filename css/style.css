@@ -436,7 +436,7 @@ p { color: var(--gray-700); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bill, .money-stack, .btn--shine::after, .cta-final__coin {
+  .bill, .money-stack, .btn--shine::after, .cta-final__coin, .btn--instagram::before {
     animation: none !important;
   }
   .bills-fall { display: none; }
@@ -741,6 +741,8 @@ p { color: var(--gray-700); }
 .contact__list small { display: block; color: var(--gold-500); font-size: 0.75rem; margin-top: 2px; }
 .contact__social { margin-top: 28px; }
 .btn--instagram {
+  position: relative;
+  z-index: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -752,9 +754,23 @@ p { color: var(--gray-700); }
   box-shadow: var(--shadow-sm);
   transition: transform var(--transition), box-shadow var(--transition);
 }
+.btn--instagram::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  z-index: -1;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888, #4c68d7, #f09433);
+  filter: blur(7px);
+  opacity: 0.9;
+  animation: instagram-glow-spin 3.5s linear infinite;
+}
 .btn--instagram:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+}
+@keyframes instagram-glow-spin {
+  to { transform: rotate(360deg); }
 }
 
 /* ==== Footer ==== */
