@@ -125,22 +125,23 @@ document.addEventListener('DOMContentLoaded', () => {
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   /* ---------- Typewriter effect for hero title ---------- */
-  const typingTarget = document.querySelector('.hero h1 .highlight');
+  const typingTarget = document.querySelector('.hero h1 .typewriter-text');
   if (typingTarget && !prefersReducedMotion) {
-    const text = typingTarget.textContent;
-    typingTarget.textContent = '';
+    const originalHTML = typingTarget.innerHTML;
+    const textContent = typingTarget.textContent;
+    typingTarget.innerHTML = ''; // Limpa o conteúdo para começar a digitar
     typingTarget.classList.add('is-typing');
 
     let i = 0;
     const type = () => {
-      if (i < text.length) {
-        typingTarget.textContent += text.charAt(i);
+      if (i < textContent.length) {
+        // Para preservar o HTML, digitamos o conteúdo de texto e no final restauramos o HTML original
+        typingTarget.textContent += textContent.charAt(i);
         i++;
-        // A velocidade pode ser fixa ou aleatória para um efeito mais natural
         const typingSpeed = 70 + Math.random() * 50;
         setTimeout(type, typingSpeed);
       } else {
-        // Quando a digitação termina, o cursor para de piscar
+        typingTarget.innerHTML = originalHTML; // Restaura o HTML para garantir a cor do highlight
         typingTarget.classList.remove('is-typing');
         typingTarget.classList.add('is-done-typing');
       }

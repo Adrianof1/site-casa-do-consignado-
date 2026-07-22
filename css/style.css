@@ -278,6 +278,24 @@ p { color: var(--gray-700); }
 
 .highlight { color: var(--green-500); }
 
+.typewriter-text.is-typing::after {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 0.85em;
+  margin-left: 3px;
+  background: var(--green-500);
+  vertical-align: text-bottom;
+  animation: cursor-blink 0.8s step-end infinite;
+}
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .typewriter-text.is-typing::after { animation: none; }
+}
+
 .hero__cta {
   display: flex;
   gap: 16px;
@@ -326,6 +344,7 @@ p { color: var(--gray-700); }
   font-family: var(--font-heading);
   font-weight: 800;
   font-size: 1.3rem;
+  color: var(--white);
   text-align: center;
 }
 .hero__card-role {
@@ -338,6 +357,7 @@ p { color: var(--gray-700); }
 .hero__card-note {
   text-align: center;
   font-size: 0.88rem;
+  color: var(--white);
   opacity: 0.8;
   margin-bottom: 24px;
 }
@@ -772,7 +792,7 @@ p { color: var(--gray-700); }
   color: rgba(255,255,255,0.5);
   line-height: 1.7;
 }
-.footer__copy { font-size: 0.85rem; }
+.footer__copy { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
 .footer__copy a {
   color: rgba(255,255,255,0.7);
   text-decoration: underline;
