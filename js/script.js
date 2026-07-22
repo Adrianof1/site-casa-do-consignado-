@@ -1,22 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- Falling bills (hero ambient animation) ---------- */
+  /* ---------- Falling bills (discreet, site-wide ambient animation) ---------- */
   const billsFall = document.getElementById('billsFall');
   if (billsFall && !prefersReducedMotion) {
-    const BILL_COUNT = 14;
+    const BILL_COUNT = 8;
     for (let i = 0; i < BILL_COUNT; i++) {
       const bill = document.createElement('div');
       bill.className = 'bill';
-      const duration = 9 + Math.random() * 7; // 9s–16s
+      const duration = 16 + Math.random() * 10; // 16s–26s: devagar, discreto
       const delay = -(Math.random() * duration); // negative delay = starts mid-fall
       bill.style.setProperty('--x', `${Math.random() * 100}%`);
       bill.style.setProperty('--dur', `${duration}s`);
       bill.style.setProperty('--delay', `${delay}s`);
       bill.style.setProperty('--drift', `${(Math.random() - 0.5) * 120}px`);
       bill.style.setProperty('--spin', `${180 + Math.random() * 360}deg`);
-      bill.style.setProperty('--s', `${0.7 + Math.random() * 0.6}`);
-      bill.style.setProperty('--o', `${0.1 + Math.random() * 0.14}`);
+      bill.style.setProperty('--s', `${0.6 + Math.random() * 0.5}`);
+      bill.style.setProperty('--o', `${0.06 + Math.random() * 0.09}`);
       bill.innerHTML = '<div class="bill__note">R$</div>';
       billsFall.appendChild(bill);
     }

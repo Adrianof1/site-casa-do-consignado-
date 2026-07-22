@@ -363,13 +363,13 @@ p { color: var(--gray-700); }
 }
 .hero__card-cta { width: 100%; }
 
-/* ==== Falling bills (hero ambient animation) ==== */
+/* ==== Falling bills (discreet, site-wide ambient animation) ==== */
 .bills-fall {
-  position: absolute;
+  position: fixed;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  z-index: 0;
+  z-index: 5;
 }
 .bill {
   position: absolute;
@@ -668,7 +668,9 @@ p { color: var(--gray-700); }
 .cta-final__coin--1 { left: 6%; top: 18%; animation-delay: -1.2s; }
 .cta-final__coin--2 { right: 8%; bottom: 14%; width: 52px; animation-delay: -3s; }
 @media (max-width: 760px) {
-  .cta-final__coin { display: none; }
+  .cta-final__coin { width: 38px; opacity: 0.14; }
+  .cta-final__coin--1 { left: 4%; top: 8%; }
+  .cta-final__coin--2 { right: 4%; bottom: 8%; width: 32px; }
 }
 
 /* ==== Contact ==== */
@@ -886,4 +888,5 @@ p { color: var(--gray-700); }
   .hero { padding-top: 120px; }
   .hero__cta { flex-direction: column; align-items: stretch; }
   .hero__cta .btn { width: 100%; }
+  .consultor__photo-wrap { max-width: 210px; }
 }
