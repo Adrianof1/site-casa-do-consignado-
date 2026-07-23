@@ -19,7 +19,7 @@ sitemap.xml          lista de páginas para o Google indexar
 - **WhatsApp**: `5586988422265` — (86) 98842-2265, consultor Paulo Henrique — usado em
   todos os botões de WhatsApp e no formulário de contato (que monta a mensagem e abre
   o WhatsApp direto).
-- **Endereço**: Rua Sete de Setembro, 355 - Sala 108 (Térreo), Teresina/PI.
+- **Endereço**: Rua Sete de Setembro, 335 - Sala 108 (Térreo), Teresina/PI.
 - **Logo**: ícone casa + cifrão (inline SVG no header/footer e em `assets/favicon.svg`).
 - **Serviços**: Consignado Servidor Público, Consignado INSS, Antecipação FGTS e
   Consignado CLT.
@@ -52,7 +52,7 @@ site. Ordem de prioridade para esse tipo de negócio (consultor local):
    https://search.google.com/search-console, enviar o `sitemap.xml` e pedir indexação
    da página. Sem isso o Google pode demorar semanas para achar o site sozinho.
 4. **Preencher o CEP real** no JSON-LD (`index.html`, bloco `address`) — removido por
-   enquanto porque o número 355 da Rua Sete de Setembro tem mais de um CEP possível
+   enquanto porque o número 335 da Rua Sete de Setembro tem mais de um CEP possível
    em Teresina; conferir o correto nos Correios.
 5. **Link no Instagram** (`@paulo_credito_consignado`) apontando para o site — todo
    link externo real ajuda o Google a confiar mais na página.
