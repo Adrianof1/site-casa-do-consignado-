@@ -818,6 +818,40 @@ p { color: var(--gray-700); }
 }
 .footer__copy a:hover { color: var(--white); }
 
+.footer__credit {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+.footer__credit-links {
+  display: inline-flex;
+  gap: 6px;
+}
+.footer__credit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.68rem;
+  color: var(--white);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.footer__credit-link svg { width: 11px; height: 11px; }
+.footer__credit-link:hover { transform: translateY(-1px); }
+.footer__credit-link--whatsapp { background: var(--whatsapp); }
+.footer__credit-link--whatsapp:hover { background: var(--whatsapp-dark); }
+.footer__credit-link--linkedin { background: #0a66c2; }
+.footer__credit-link--linkedin:hover { background: #084d92; }
+
 /* ==== Cookie Banner ==== */
 .cookie-banner {
   position: fixed;
