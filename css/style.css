@@ -835,6 +835,29 @@ p { color: var(--gray-700); }
 }
 .cookie-banner.is-visible { transform: translateY(0); }
 .cookie-banner a { color: var(--gold-400); text-decoration: underline; }
+.cookie-banner p { color: rgba(255,255,255,0.85); font-size: 0.88rem; max-width: 760px; }
+.cookie-banner__accept {
+  flex-shrink: 0;
+  background: var(--gold-400);
+  color: var(--navy-900);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--transition), transform var(--transition);
+}
+.cookie-banner__accept:hover { background: var(--gold-500); transform: translateY(-1px); }
+@media (max-width: 640px) {
+  .cookie-banner {
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px 20px;
+    text-align: center;
+  }
+}
 
 /* ==== WhatsApp Float ==== */
 .whatsapp-float {
